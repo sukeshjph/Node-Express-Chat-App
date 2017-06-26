@@ -1,0 +1,128 @@
+button,
+button:hover {
+    padding: 8px
+}
+
+.main-Body
+{
+  margin-top: 10px;
+}
+
+.chat__messages,
+.chat__sidebar ul {
+    list-style-type: none
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    
+}
+
+li,
+ul {
+    list-style-position: inside
+}
+
+h3 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5rem
+}
+
+button:disabled {
+    cursor: default;
+    background: #698ea5
+}
+
+.centered-form {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
+    background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%);
+    background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0, rgba(49, 84, 129, 1) 100%)
+}
+
+.centered-form__form {
+  padding: 0 20px;
+  margin: 20px;
+}
+
+.centered-form__form button
+{
+    width:100px;
+}
+
+.chat {
+    display: flex
+}
+
+.chat__sidebar {
+    overflow-y: scroll;
+    width: 260px;
+    height: 100vh;
+    background-color: #afbcd1;
+}
+
+.chat__footer,
+.chat__sidebar li {
+    background: #e6eaee;
+    padding: 10px
+}
+
+.chat__sidebar h3 {
+    color: #e6eaee;
+    margin: 10px 20px;
+    text-align: left
+}
+
+.chat__sidebar li {
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin: 10px
+}
+
+.chat__main {
+   height: 100vh;   
+}
+
+.chat__messages {
+  min-height: 82vh;
+}
+
+.chat__footer form * {
+    margin-right: 10px
+}
+
+.chat__footer input {
+    border: none;
+    padding: 10px;
+    flex-grow: 1
+}
+
+.message {
+    margin: 5px;
+}
+
+.message__title {
+    margin-bottom: 5px
+}
+
+.message__title h4 {
+    font-weight: 600;
+    margin-right: 10px
+}
+
+.message__title span {
+    color: #999
+}
+

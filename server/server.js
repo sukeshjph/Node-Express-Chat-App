@@ -3,6 +3,9 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 
+const {getMessageObject} = require('./utils/message');
+const {isRealString} = require('./utils/validation');
+
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3200;
 var app = express();
@@ -11,6 +14,27 @@ var io = socketIO(server);
 
 app.use(express.static(publicPath));
 
+io.on('connection', (socket) => {
+  
+  socket.on('join', (params, callback) => {
+    if (!isRealString(params.name) || !isRealString(params.room)) {
+      callback('User name and Room are required');
+    }
+    socket.join(params.room);
+    socket.emit('newMessage', getMessageObject('Admin', 'Welcome to Messenger!!'));
+    socket.broadcast.to(params.room).emit('newMessage', getMessageObject('Admin', `${params.name} has joined.`));
+    callback();
+  });
+
+  socket.on('createMessage', (message, callback) => {
+    io.emit('newMessage', getMessageObject(message.from, message.text));
+    callback();
+  });
+  
+  socket.on('disconnect', () => {
+    console.log('User was disconnected');
+  });
+});
 
 server.listen(port, () => {
   console.log(`Server is up on ${port}`);
